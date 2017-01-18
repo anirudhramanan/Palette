@@ -38,6 +38,7 @@ public class AdapterColorList extends RecyclerView.Adapter<AdapterColorList.View
     public void onBindViewHolder(ViewHolderColors holder, final int position) {
 
         holder.tvColorTitle.setText(listColorData.get(position).getTitle());
+        holder.tvColorTitle.setTextColor(listColorData.get(position).getTextColor());
 
         holder.coloredView.setBackgroundColor(listColorData.get(position).getColor());
 
