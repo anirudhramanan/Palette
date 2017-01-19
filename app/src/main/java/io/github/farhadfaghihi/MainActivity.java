@@ -20,6 +20,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.ImageView;
 
+import com.squareup.picasso.Picasso;
+
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity  implements AdapterColorList.OnColorItemListener {
@@ -53,6 +55,8 @@ public class MainActivity extends AppCompatActivity  implements AdapterColorList
         fabGetColors = (FloatingActionButton)findViewById(R.id.fabGetColors);
         toolbar = (Toolbar) findViewById(R.id.toolbar) ;
 
+        setSupportActionBar(toolbar);
+
         fabGetColors.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -64,13 +68,7 @@ public class MainActivity extends AppCompatActivity  implements AdapterColorList
 
     private void loadSampleImageAsync(){
 
-        new Handler(Looper.myLooper()).postDelayed(new Runnable() {
-            @Override
-            public void run() {
-
-                imageView.setImageResource(R.drawable.sportcar);
-            }
-        },250) ;
+        Picasso.with(this).load(R.drawable.sportcar).into(imageView);
     }
 
     private void showListColors(){
